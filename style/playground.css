@@ -1,0 +1,28 @@
+.play-ground{
+    margin: auto auto auto auto;
+    width: 100vmin;
+    height: 100vmin;
+    background-color: black;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: repeat(21,1fr);
+    grid-template-columns: repeat(19,1fr);
+    position: relative;
+}
+.wall{
+    border: 1px solid #1739e7;
+    color: black;
+    border-radius: 5px;
+ 
+
+}
+.food{
+    background-color: rgb(254, 198, 108);
+    width: 5px;
+    height: 5px;
+    margin: auto;
+}
+body{
+    overflow: hidden;
+}
+

@@ -1,0 +1,176 @@
+/*let timeInterval = 100;
+let pacX = 0;
+let pacY = 0;
+let counter=0;
+let intervalId = null;
+const brickRowCount = 30;
+const brickColumnCount = 30;
+const bricks = [];
+const pacman = document.querySelector(".pacman");
+const mouth = document.querySelector(".pacman-mouth");
+const score=document.querySelector(".count")
+function firstEvent() {
+  mouth.style.clipPath = "polygon(100% 74%, 24% 48%, 100% 21%)";
+}
+
+function secondEvent() {
+  mouth.style.clipPath = "polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%)";
+}
+
+function startAnimation() {
+  firstEvent();
+
+  setTimeout(() => {
+    secondEvent();
+
+    setTimeout(startAnimation, 100);
+  }, timeInterval);
+}
+
+startAnimation();
+
+function move() {
+  document.addEventListener("keyup", (e) => {
+    if (intervalId !== null) {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+
+    if (e.key === "ArrowRight" && intervalId === null) {
+      intervalId = setInterval(() => {
+        if (!collisionDetection("right")) {
+          pacX += 5;
+          pacman.style.transform = `translate(${pacX}px, ${pacY}px)`;
+          foodDetection("right");
+         
+        }
+      }, 35);
+    } else if (e.key === "ArrowLeft" && intervalId === null) {
+      intervalId = setInterval(() => {
+        if (!collisionDetection("left")) {
+          pacX -= 5;
+          pacman.style.transform = `rotate(180deg)`;
+        pacman.style.transform = `translate(${pacX}px, ${pacY}px) rotate(180deg)`;
+        foodDetection("left");
+      
+        }
+      }, 35);
+    } else if (e.key === "ArrowDown" && intervalId === null) {
+      intervalId = setInterval(() => {
+        if (!collisionDetection("down")) {
+          pacY += 5;
+          pacman.style.transform = `rotate(90deg)`;
+          pacman.style.transform = `translate(${pacX}px, ${pacY}px) rotate(90deg)`;
+          foodDetection("down");
+         
+        }
+      }, 35);
+    } else if (e.key === "ArrowUp" && intervalId === null) {
+      intervalId = setInterval(() => {
+        if (!collisionDetection("up")) {
+          pacY -= 5;
+          pacman.style.transform = `rotate(270deg)`;
+        pacman.style.transform = `translate(${pacX}px, ${pacY}px) rotate(270deg)`; 
+       foodDetection("up");
+       
+        }
+      }, 35);
+    }
+  });
+}
+
+move();
+
+function collisionDetection(direction) {
+  const pacmanRect = pacman.getBoundingClientRect();
+  let newX = pacX;
+  let newY = pacY;
+
+  if (direction === "right") {
+    newX += 5;
+  } else if (direction === "left") {
+    newX -= 5;
+  } else if (direction === "down") {
+    newY += 5;
+  } else if (direction === "up") {
+    newY -= 5;
+  }
+
+  const newRect = {
+    left: pacmanRect.left + (newX - pacX),
+    right: pacmanRect.right + (newX - pacX),
+    top: pacmanRect.top + (newY - pacY),
+    bottom: pacmanRect.bottom + (newY - pacY),
+  };
+
+  const walls = document.querySelectorAll(".wall");
+
+  for (const wall of walls) {
+    const wallRect = wall.getBoundingClientRect();
+
+    if (
+      newRect.right > wallRect.left &&
+      newRect.left < wallRect.right &&
+      newRect.bottom > wallRect.top &&
+      newRect.top < wallRect.bottom
+    ) {
+      return true; // Çarpışma var
+    }
+  }
+
+  return false; // Çarpışma yok
+}
+
+function foodDetection(direction){
+  
+  const pacmanRect = pacman.getBoundingClientRect();
+  let newX = pacX;
+  let newY = pacY;
+
+  if (direction === "right") {
+    newX += 5;
+  } else if (direction === "left") {
+    newX -= 5;
+  } else if (direction === "down") {
+    newY += 5;
+  } else if (direction === "up") {
+    newY -= 5;
+  }
+
+  const newRect = {
+    left: pacmanRect.left + (newX - pacX),
+    right: pacmanRect.right + (newX - pacX),
+    top: pacmanRect.top + (newY - pacY),
+    bottom: pacmanRect.bottom + (newY - pacY),
+  };
+
+  const walls = document.querySelectorAll(".food");
+  for (const wall of walls) {
+    
+    const wallRect = wall.getBoundingClientRect();
+
+    if (
+      newRect.right > wallRect.left &&
+      newRect.left < wallRect.right &&
+      newRect.bottom > wallRect.top &&
+      newRect.top < wallRect.bottom
+    ) {
+      console.clear();
+      wall.remove();
+      counter++;
+      console.log("Skor: "+counter)
+      
+      if (counter==215) {
+        alert("bitti")
+      }
+      
+      return true; // Çarpışma var
+      
+    }
+   
+  
+  }
+  return false;
+    
+}
+*/
